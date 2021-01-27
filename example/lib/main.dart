@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
                 color: Colors.blue,
                 child: new Text("CLICK ME"),
                 onPressed: () async {
-                  Contact contact = await _contactPicker.selectContact();
+                  Contact contact = await _contactPicker.selectEmail();
                   setState(() {
                     _contact = contact;
                   });

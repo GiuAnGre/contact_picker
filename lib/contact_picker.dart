@@ -26,15 +26,38 @@ class ContactPicker {
     }
     return new Contact.fromMap(result);
   }
+
+
+  Future<Contact> selectPhone() async {
+    final Map<dynamic, dynamic> result =
+    await _channel.invokeMethod('selectPhone');
+    if (result == null) {
+      return null;
+    }
+    return new Contact.fromMap(result);
+  }
+
+  Future<Contact> selectEmail() async {
+    final Map<dynamic, dynamic> result =
+    await _channel.invokeMethod('selectEmail');
+    if (result == null) {
+      return null;
+    }
+    return new Contact.fromMap(result);
+  }
+
+
 }
 
 /// Represents a contact selected by the user.
 class Contact {
-  Contact({this.fullName, this.phoneNumber});
+  Contact({this.fullName, this.phoneNumber, this.emailAddress});
 
   factory Contact.fromMap(Map<dynamic, dynamic> map) => new Contact(
       fullName: map['fullName'],
-      phoneNumber: new PhoneNumber.fromMap(map['phoneNumber']));
+      phoneNumber: map['phoneNumber'] != null ? new PhoneNumber.fromMap(map['phoneNumber']) : null,
+      emailAddress: map['emailAddress'] != null ? new EmailAddress.fromMap(map['emailAddress']) : null
+  );
 
   /// The full name of the contact, e.g. "Dr. Daniel Higgens Jr.".
   final String fullName;
@@ -42,8 +65,10 @@ class Contact {
   /// The phone number of the contact.
   final PhoneNumber phoneNumber;
 
+  final EmailAddress emailAddress;
+
   @override
-  String toString() => '$fullName: $phoneNumber';
+  String toString() => '$fullName: $phoneNumber  $emailAddress';
 }
 
 /// Represents a phone number selected by the user.
@@ -61,4 +86,20 @@ class PhoneNumber {
 
   @override
   String toString() => '$number ($label)';
+}
+
+class EmailAddress {
+  EmailAddress({this.address, this.label});
+
+  factory EmailAddress.fromMap(Map<dynamic, dynamic> map) =>
+      new EmailAddress(address: map['address'], label: map['label']);
+
+  /// The formatted phone number, e.g. "+1 (555) 555-5555"
+  final String address;
+
+  /// The label associated with the phone number, e.g. "home" or "work".
+  final String label;
+
+  @override
+  String toString() => '$address ($label)';
 }
