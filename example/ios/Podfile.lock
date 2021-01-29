@@ -4,19 +4,19 @@ PODS:
   - Flutter (1.0.0)
 
 DEPENDENCIES:
-  - contact_picker (from `/Users/goderbauer/dev/contact_picker/ios`)
-  - Flutter (from `/Users/goderbauer/dev/flutter/bin/cache/artifacts/engine/ios`)
+  - contact_picker (from `/Users/giulianagrecco/Downloads/contact_picker/ios`)
+  - Flutter (from `/Users/giulianagrecco/Downloads/flutter/bin/cache/artifacts/engine/ios`)
 
 EXTERNAL SOURCES:
   contact_picker:
-    :path: /Users/goderbauer/dev/contact_picker/ios
+    :path: "/Users/giulianagrecco/Downloads/contact_picker/ios"
   Flutter:
-    :path: /Users/goderbauer/dev/flutter/bin/cache/artifacts/engine/ios
+    :path: "/Users/giulianagrecco/Downloads/flutter/bin/cache/artifacts/engine/ios"
 
 SPEC CHECKSUMS:
-  contact_picker: e5ff7027200ed490ac2b58a2338f81f79b05fe4f
-  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
+  contact_picker: 57db5d8b410b52a0457d88f7b15de7d3307e8f16
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
 
-PODFILE CHECKSUM: 351e02e34b831289961ec3558a535cbd2c4965d2
+PODFILE CHECKSUM: 8cae0a1f08827c3555dbd37b0995dcd5fa118277
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.9.3

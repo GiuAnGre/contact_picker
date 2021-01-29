@@ -19,11 +19,11 @@ class _MyAppState extends State<MyApp> {
   Contact _contact;
 
   @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
+  Widget build(BuildContext context) =>
+     new MaterialApp(
       home: new Scaffold(
         appBar: new AppBar(
-          title: new Text('Plugin example app'),
+          title:  const Text('Plugin example app'),
         ),
         body: new Center(
           child: new Column(
@@ -31,9 +31,9 @@ class _MyAppState extends State<MyApp> {
             children: <Widget>[
               new MaterialButton(
                 color: Colors.blue,
-                child: new Text("CLICK ME"),
+                child:  const Text("CLICK ME"),
                 onPressed: () async {
-                  Contact contact = await _contactPicker.selectEmail();
+                  final Contact contact = await _contactPicker.selectEmail();
                   setState(() {
                     _contact = contact;
                   });
@@ -47,5 +47,5 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
     );
-  }
+
 }
